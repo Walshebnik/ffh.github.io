@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Metro UI -->
+    <link rel="stylesheet" href="https://cdn.korzh.com/metroui/v4/css/metro-all.min.css">
+  </head>
+  <body>
+<div id="mnn">    
+    <h1>Заполни анкету</h1>
+    <input type="text" data-role="input" data-prepend="Твое имя: ">
+<p>Твои интересы:</p>
+<select data-role="select" multiple> 
+    <option value="1" data-template="$1">Чтение книг</option> 
+    <option value="2" data-template="$1">Путешествия и изучение новых культур</option> 
+    <option value="3" data-template="$1">Фотография</option> 
+    <option value="4" data-template="$1">Компьютерные игры</option> 
+    <option value="5" data-template="$1">Рисование и живопись</option> 
+    <option value="6" data-template="$1">Музыка и игра на инструментах</option> 
+    <option value="7" data-template="$1">Спорт (бег, йога, плавание, фитнес)</option> 
+    <option value="8" data-template="$1">Кулинария и эксперименты с едой</option> 
+    <option value="9" data-template="$1">Вязание и шитье</option> 
+    <option value="10" data-template="$1"> Изучение языков</option> 
+    <option value="11" data-template="$1"> Блогинг и создание видео-контента</option> 
+    <option value="12" data-template="$1">Танцы</option> 
+    <option value="13" data-template="$1">Занятия рукоделием (вышивка, бисероплетение, макраме)</option>
+    <option value="14" data-template="$1">Коллекционирование (монеты, открытки, почтовые марки)</option>
+    <option value="15" data-template="$1">Садоводство и выращивание растений</option>
+    <option value="16" data-template="$1">Изучение истории и культуры</option>
+    <option value="17" data-template="$1">Мобильные игры</option>
+    <option value="18" data-template="$1">Игровые события</option>
+    <option value="19" data-template="$1">Ретроигры</option>
+    <option value="20" data-template="$1">Игровые турниры</option>
+    <option value="21" data-template="$1">Командные игры</option>
+    <option value="22" data-template="$1">Кино</option>
+    <option value="23" data-template="$1">Изысканная кухня</option>
+    <option value="24" data-template="$1">Жрать</option>
+  <option value="25" data-template="$1">Фурри</option>
+</select>
+<p>Твой возраст:</p>
+<input type="text" data-role="spinner" data-min-value="16" data-max-value="100" data-step="1" value="16">
+<p>Твой пол:</p>
+<select data-role="select">
+    <option value="1" data-template="$1">Мужской</option>
+    <option value="2" data-template="$1">Женский</option>
+</select>
+
+<p>О себе:</p>
+<textarea data-role="textarea" data-prepend="<span class='mif-leanpub'></span>"></textarea>
+
+</div>
+    <p></p>
+    <div id="btnSubmitDiv">
+  <button id="btnSubmit" class="button primary outline">Отправить</button>
+</div>
+    <!-- Metro UI -->
+    <script src="https://cdn.korzh.com/metroui/v4/js/metro.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#btnSubmit").click(function(){
+        var select = Metro.getPlugin($("#i"), 'select');
+        cards={
+                    "n":$("#n").val(),
+         "h":select.val(),
+         "e":$("#e").val(), 
+          "p":$("#p").val(),
+          "o":$("#o").val(),
+                  };
+              
+                tg.sendData(JSON.stringify(cards)); 
+
+            }); 
+        });</script>
+        <style>#mnn{
+            width : 75%;
+            margin: 0 auto;
+        }
+        #btnSubmitDiv{
+          width : 75%;
+            margin: 0 auto;
+        }
+        #btnSubmit{
+          width : 100%;
+            margin: 0 auto;
+        }</style>
+  </body>
+</html>
+
+
+<!-- $(document).ready(function() {
+    $("#btnSubmit").click(function(){
+var select = Metro.getPlugin($("#i"), 'select');
+cards={
+            "n":$("#n").val(),
+ "h":select.val(),
+ "e":$("#e").val(), 
+  "p":$("#p").val(),
+  "o":$("#o").val(),
+          };
+      
+        console.log(JSON.stringify(cards));
+        
+    }); 
+}); -->
